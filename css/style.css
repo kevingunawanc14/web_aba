@@ -1,0 +1,743 @@
+@font-face {
+  font-family: theboldfont;
+  src: url("../font/THEBOLDFONT2022.otf");
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  /* overflow-x: hidden; */
+}
+
+/* size text sebelah logo  */
+.navbar_aba .col-4 p {
+  font-size: smaller;
+}
+
+/* border navbar */
+.content-nav {
+  background-color: #eb1a41;
+  border-bottom-left-radius: 60px;
+  width: 100%;
+}
+.navbar {
+  transition: all 0.5s ease;
+}
+
+.navbar.fixed-top {
+  background-color: #eb1a41;
+  padding: 20px;
+  transition: padding 0.8s;
+}
+
+.navbar.fixed-top .collapse {
+  justify-content: center;
+}
+
+.logo {
+  width: 65%;
+  margin-top: 10%;
+}
+
+.tagline {
+  position: absolute;
+  bottom: 0;
+  left: 3em;
+  text-align: left;
+}
+
+.tagline p {
+  font-weight: bold;
+  font-size: 2em;
+  margin-bottom: 0;
+}
+
+/* warna color our company   */
+.our_company,
+h3,
+h1 {
+  color: #003650;
+}
+
+.red_company {
+  color: #eb1a41 !important;
+}
+
+/* warna color visi misi */
+.visi_misi h1,
+h3,
+li {
+  color: #003650;
+}
+
+.red_misi {
+  color: #eb1a41 !important;
+}
+
+/* warna bullet list ul */
+
+/* warna color nav item */
+.nav-item a {
+  color: white;
+}
+
+/* warna font text judul */
+.professional h3 {
+  color: #eb1a41;
+}
+
+/* warna background */
+.professional {
+  border-radius: 20px;
+  display: inline-block;
+}
+
+/* warna font text judul */
+.reliable h3 {
+  color: #eb1a41;
+}
+
+/* warna background */
+.reliable {
+  border-radius: 20px;
+  display: inline-block;
+  min-height: 100%;
+}
+
+/* warna font text judul */
+.focused h3 {
+  color: #eb1a41;
+}
+
+/* warna background */
+.focused {
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.what_we_offers_merah {
+  color: #eb1a41;
+}
+
+.merah_tagline {
+  color: #eb1a41;
+}
+
+.team_merah {
+  color: #eb1a41;
+}
+
+.group_merah {
+  color: #eb1a41;
+}
+
+p {
+  font-size: 20px;
+  line-height: 2rem;
+}
+
+li {
+  font-size: 20px;
+}
+
+.visi_misi ul {
+  list-style: none;
+  padding-left: 2rem;
+  /* Remove default bullets */
+}
+
+.visi_misi ul li::before {
+  content: "";
+  background-color: #eb1a41;
+  font-weight: bold;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 0.5em;
+  margin-left: -1em;
+}
+
+/* padding right buat p */
+.our_group_aba .col-5 p {
+  padding-right: 6em;
+}
+
+/* .our_team_aba .row:nth-child(2) .shadow {
+  border-radius: 20px;
+  min-height: 425px;
+} */
+
+.reliable{
+  border-radius: 20px;
+  min-height: 425px;
+}
+
+/* css trapesium our team */
+.trapezoid {
+  width: 200px;
+  height: 100px;
+  background: rgba(182, 49, 49, 0.5);
+  margin-left: 0px;
+  position: relative;
+  display: inline-block;
+}
+.trapezoid:before {
+  content: "";
+  border-right: 45px solid rgba(182, 49, 49, 0.5);
+  border-bottom: 100px solid transparent;
+  position: absolute;
+  left: -45px;
+  top: 0;
+}
+.trapezoid:after {
+  content: "";
+  border-left: 45px solid rgba(182, 49, 49, 0.5);
+  border-bottom: 100px solid transparent;
+  position: absolute;
+  right: -45px;
+  top: 0;
+}
+/* css trapesium our team */
+
+/* background biru what we offer */
+.what_we_offers .bg-blue {
+  background-color: #003650;
+}
+
+/* width img what we offer */
+.what_we_offers img {
+  width: 100%;
+}
+
+.content-profile {
+  position: relative;
+  min-height: 800px;
+}
+
+.our_team_1 {
+  position: relative;
+}
+
+.our_team_1 .wrapTrapezoid {
+  position: absolute;
+  top: 18%;
+  left: 0;
+  right: 0;
+}
+
+.assetTeam {
+  width: 100%;
+  margin-top: 40%;
+}
+
+.assetOur {
+  width: 20%;
+  margin-top: -115%;
+}
+
+.divWhatWeOffer {
+  position: relative;
+}
+
+.textWhatWeOffer {
+  min-height: 500px;
+}
+
+.textWhatWeOffer p {
+  padding-right: 35em;
+}
+.gambarProduk {
+  position: absolute;
+  top: -35%;
+  right: 0;
+  text-align: right;
+}
+
+.sideImgAsset {
+  max-width: 100%;
+  height: 100%;
+}
+
+.bgSideAsset {
+  max-width: 100%;
+  height: 100%;
+}
+
+.sideFrontAsset {
+  max-width: 100%;
+  height: 100%;
+}
+
+.sideFront {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.bgSide {
+  position: absolute;
+  top: 50px;
+  bottom: 50px;
+  z-index: 3;
+  width: 100%;
+}
+
+.bgSide p {
+  position: absolute;
+  top: 30%;
+  padding-right: 50px;
+  padding-left: 20px;
+  max-width: 60%;
+}
+
+.sideImg {
+  position: absolute;
+  top: 50px;
+  bottom: 50px;
+  z-index: 2;
+}
+
+.membangung_masa_depan {
+  position: relative;
+  background-color: #00344f;
+  padding: 3em;
+}
+
+.membangung_masa_depan h3 {
+  margin-left: 3em;
+}
+
+.ourgroup {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.assetOurgroup {
+  height: 100%;
+  background-color: #fff;
+}
+
+.quoteAtas {
+  position: absolute;
+  bottom: 20%;
+  right: 5%;
+}
+
+.assetQuoteAtas {
+  width: 50%;
+}
+
+.quoteBawah {
+  position: absolute;
+  top: 11%;
+  left: 4em;
+  transform: rotate(180deg);
+}
+
+.assetQuoteBawah {
+  width: 50%;
+}
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: rgb(210, 210, 210);
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: #eb1a41;
+
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #eb1a41;
+}
+
+.our_team_kategori {
+  margin-top: 7em;
+}
+
+.our_team_anggota {
+  margin-top: 7em;
+}
+
+.welcome,
+.product-page,
+.contact-page {
+  margin-top: 8em;
+}
+
+.our_group_aba {
+  margin-top: 7em;
+}
+
+.our_team_aba {
+  margin-top: 7em;
+}
+
+.what_we_offers {
+  padding-top: 20em;
+}
+
+.footer .col-4 p:nth-child(1) {
+  color: #eb1a41;
+}
+
+/* background merah */
+/* tulisan hitam */
+.btn.btn-dark.rounded-circle:hover,
+.btn.btn-dark.rounded-circle:hover .fa-linkedin-in {
+  background-color: #eb1a41;
+  color: black;
+}
+
+.copyright {
+  background-color: #eb1a41;
+}
+
+.btn.btn-dark.rounded-circle {
+  /* min-width: 50px; */
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+  transition: ease 0.6s;
+}
+
+.logo_contact_us {
+  width: 50%;
+}
+
+.footer p:nth-child(odd) {
+  color: #eb1a41;
+}
+
+.our_group_aba p {
+  padding-right: 5rem;
+}
+
+.formSubmitButton:hover,
+.buttonShowMoreProduct:hover {
+  background-color: #eb1a41;
+  color: black;
+}
+
+.contact-maps {
+  min-height: 500px;
+}
+
+.cartButton {
+  width: 50%;
+}
+
+.btn-dark {
+  transition: ease 0.6s;
+}
+.btn-outline-dark {
+  transition: ease 0.6s;
+}
+
+.ourProduct {
+  margin-top: 7em;
+}
+
+.slider img {
+  width: 80%;
+}
+
+.slider {
+  margin-top: -100px;
+}
+
+.buttonSliderPrev {
+  z-index: 1;
+  right: 0;
+}
+
+.slider .fa-2xl {
+  color: #eb1a41;
+}
+
+.test {
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 3;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 250ms ease-in;
+  min-height: 290px;
+}
+
+.catalogHover {
+  position: relative;
+}
+.catalogHover:hover > .hovered {
+  opacity: 1;
+}
+.hovered {
+  position: absolute;
+  top: 0;
+  left: 25%;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 3em;
+  opacity: 0;
+  transition: 0.5s;
+  width: 200px;
+  height: 300px;
+}
+
+.judulJudul {
+  font-family: theboldfont;
+}
+
+.cardbox_catalog {
+  position: relative;
+  cursor: pointer;
+}
+.content_catalog {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateY(50%);
+  visibility: hidden;
+  transition: 0.3s ease-in-out;
+}
+
+.content_catalog .btn-info:hover {
+  transition: ease 0.6s;
+  color: #eb1a41;
+}
+
+.cardbox_catalog:hover .content_catalog {
+  transform: translateY(0);
+  opacity: 1;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  visibility: visible;
+}
+
+.content_catalog_1 {
+  /* position: absolute;
+  bottom: 0; */
+}
+
+.blueColor {
+  color: #00344f;
+}
+
+.redColor {
+  color: #eb1a41;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("../assets/hamburger.svg");
+}
+
+button:focus:not(:focus-visible) {
+  color: white;
+}
+
+.slick-next{
+  transition: ease 0.6s;
+}
+
+.slick-prev{
+  transition: ease 0.6s;
+}
+
+.slick-prev:hover{
+  opacity: 0.5;
+
+}
+
+.slick-next:hover{
+  opacity: 0.5;
+}
+
+.borderCeo{
+  border-radius: 20px;
+}
+
+/* responsive */
+@media only screen and (max-width: 767px) {
+  .cartButton{
+    width: 60%;
+  }
+  .navbar-toggler{
+    border: none;
+    box-shadow: none !important;
+  }
+  
+  #navbarSupportedContent {
+    border-top: solid;
+    color: white;
+  }
+
+  .bgSide p {
+    padding-right: 0;
+  }
+  .our_team_1 .wrapTrapezoid {
+    /* left: 5%; */
+  }
+  .tagline {
+    position: relative;
+    text-align: center !important;
+    left: 0;
+    padding: 20px;
+  }
+  .content-nav {
+    border-radius: 0px;
+  }
+  .logo {
+    width: 30%;
+    margin-bottom: 2em;
+  }
+  .gambarProduk {
+    top: -55%;
+  }
+  .bgSide p {
+    top: 0%;
+    font-size: 18px;
+  }
+  .bgSide {
+    width: 90%;
+  }
+  .font_masa_depan {
+    font-size: 18px;
+  }
+  .quoteAtas {
+    bottom: 5%;
+  }
+  .quoteBawah {
+    top: 5%;
+  }
+  .our_group_aba p {
+    padding-right: 0rem;
+  }
+  .welcome{
+    margin-top: 0;
+  }
+  .our_group_aba{
+    margin-top: 2em;
+  }
+  .membangung_masa_depan{
+    margin-top: 2em;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .gambarProduk{
+    top: -7%;
+  }
+  .what_we_offers img{
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .what_we_offers img {
+    width: 65%;
+  }
+  .reliable {
+    border-radius: 20px;
+    min-height: 100%;
+  }
+  .navbar_aba .row{
+    min-height: 170px;
+  }
+  .content-profile {
+    min-height: 700px;
+  }
+  .bgSide p{
+    top: 10%;
+    max-width: 55%;
+  }
+  .cartButton{
+    width: 100%;
+  }
+  .gambarProduk{
+    top: -15%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .bgSide p {
+    width: 45%;
+    top: 11%;
+  }
+  .what_we_offers img {
+    width: 85%;
+  }
+  .reliable {
+    border-radius: 20px;
+    min-height: 100%;
+  }
+  .our_team_1 .wrapTrapezoid {
+    top: 15%;
+  }
+  .cartButton{
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .content-profile {
+    min-height: 1000px;
+  }
+  .bgSide p {
+    width: 50%;
+    top: 25%;
+  }
+  .what_we_offers img {
+    /* width: 100%; */
+  }
+  .our_team_1 .wrapTrapezoid {
+    top: 20%;
+  }
+  .gambarProduk{
+    top: -20%;
+  }
+
+}
+
+@media only screen and (min-width: 1600px) {
+  .content-profile {
+    min-height: 900px;
+  }
+  .bgSide p {
+    width: 40%;
+    top: 25%;
+  }
+}
+
+@media only screen and (min-width: 1700px) {
+  .content-profile {
+    min-height: 1000px;
+  }
+  .bgSide p {
+    width: 40%;
+    top: 30%;
+  }
+}
+
+@media only screen and (min-width: 2560px) {
+  .content-profile {
+    min-height: 1000px;
+  }
+  .bgSide p {
+    width: 40%;
+    top: 30%;
+  }
+}
