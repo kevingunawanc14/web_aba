@@ -18,16 +18,16 @@ $(document).ready(function () {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-        }
+        },
       },
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-        }
-      }
-    ]
+        },
+      },
+    ],
   });
 
   // ganti icon arrow
@@ -123,10 +123,80 @@ $("ul.navbar-nav li")
     return false;
   });
 
-  // aos
-  $(function () {
-    AOS.init({
-      duration: 1200,
-      once: true,
-    })
-  })
+// aos
+$(function () {
+  AOS.init({
+    duration: 1200,
+    once: true,
+  });
+});
+
+// get api
+$(document).ready(function () {
+
+  $.ajax({
+    url: "http://localhost:8000/api/product",
+    method: "GET",
+    success: function (response) {
+      console.log(response)
+    },
+    error: function (xhr, status, error) {
+      console.error(error);
+    },
+  });
+
+  $.ajax({
+    url: "http://localhost:8000/api/catalog",
+    method: "GET",
+    success: function (response) {
+      console.log(response)
+
+    },
+    error: function (xhr, status, error) {
+      console.error(error);
+    },
+  });
+
+  $.ajax({
+    url: "http://localhost:8000/api/team",
+    method: "GET",
+    success: function (response) {
+      console.log(response)
+
+    },
+    error: function (xhr, status, error) {
+      console.error(error);
+    },
+  });
+
+});
+
+function fetchDataFromAPICatalog() {
+  $.ajax({
+    url: "http://localhost:8000/api/" + jenis_data,
+    method: "GET",
+    success: function (response) {
+      // Handle the API response here
+      console.log(response);
+    },
+    error: function (xhr, status, error) {
+      // Handle AJAX errors here
+      console.error(error);
+    },
+  });
+}
+
+function fetchDataFromAPITeam() {
+  $.ajax({
+    url: "http://localhost:8000/api/" + jenis_data,
+    method: "GET",
+    success: function (response) {
+      // Handle the API response here
+      console.log(response);
+    },
+    error: function (xhr, status, error) {
+      // Handle AJAX errors here
+      console.error(error);
+    },
+  });
+}
