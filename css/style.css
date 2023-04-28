@@ -572,6 +572,10 @@ button:focus:not(:focus-visible) {
   border-radius: 20px;
 }
 
+.hidden{
+  display: none;
+}
+
 /* responsive */
 @media only screen and (max-width: 767px) {
   .cartButton{
@@ -743,3 +747,4 @@ button:focus:not(:focus-visible) {
     top: 30%;
   }
 }
+
