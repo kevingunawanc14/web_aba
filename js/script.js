@@ -133,29 +133,31 @@ $(function () {
 
 // get api
 $(document).ready(function () {
+  let url = "http://localhost:8000/api/";
   $.ajax({
-    url: "http://localhost:8000/api/product",
+    url: url + "product",
     method: "GET",
     success: function (response) {
       console.log(response);
       console.log(response["data"]);
       console.log(response["data"][0]);
-      console.log(response["data"][0]['nama']);
+      console.log(response["data"][0]["nama"]);
 
       console.log(response["data"].length);
-
-
 
       let productDataElement = $(".ourProductIndex");
 
       for (let i = 0; i < response["data"].length && i < 4; i++) {
         // console.log("a")
         // console.log(data[""])
+        if (response["data"][i]["status"] == 0) {
+          continue;
+        }
         let html = `
         <div class="col-sm-6 col-md-6 col-lg-3">
           <div class="card mb-4 shadow">
             <img
-              src="assets/product/masamortarthb.jpg"
+              src="${response["data"][i]["image"]}"
               class="card-img-top img-fluid"
               alt="Product 1"
             />
@@ -164,7 +166,7 @@ $(document).ready(function () {
               <p class="text-muted fs-6 text">${response["data"][i]["harga"]}</p>
               <p class="text-muted fs-6 text">${response["data"][i]["deskripsi"]}</p>
 
-              <button
+              <button href="${response["data"][i]["link"]}"
                 type="button"
                 class="cartButton btn btn-outline-dark rounded-pill btn-lg"
               >
@@ -175,7 +177,58 @@ $(document).ready(function () {
         </div>
         `;
         productDataElement.append(html);
-        console.log(i)
+        console.log(i);
+      }
+
+      let pageProductData = $(".product-page");
+
+      for (let i = 0; i < response["data"].length; i++) {
+        if (response["data"][i]["status"] == 0) {
+          continue;
+        }
+        let html = `<div class="row mt-5">`;
+        let counter = 0
+        let urutanSekarang = 0
+        // console.log("a")
+        // console.log(data[""])
+            for (let j = i; j < response["data"].length; j++) {
+              if (counter > 4){
+                break
+              }
+              html += `     
+                <div class="col-md-6 col-lg-3">
+                  <div class="card mb-4 shadow">
+                    <img
+                      src="${response["data"][j]["image"]}"
+                      class="card-img-top img-fluid"
+                      alt="Product 1"
+                    />
+                    <div class="card-body">
+                      <p class="card-text">${response["data"][j]["nama"]}</p>
+                      <p class="text-muted fs-6 text">${response["data"][j]["harga"]}</p>
+                      <p class="text-muted fs-6 text">
+                      ${response["data"][j]["deskripsi"]}
+                      </p>
+
+                      <button href="${response["data"][j]["link"]}"
+                        type="button"
+                        class="cartButton btn btn-outline-dark rounded-pill btn-lg"
+                      >
+                        <i class="fa-brands fa-whatsapp"></i> ORDER
+                      </button>
+                    </div>
+                  </div>
+                </div>`;
+                counter+=1
+                urutanSekarang+=1
+            }
+
+            i = urutanSekarang; 
+
+        html += `</div>`;
+
+        pageProductData.append(html);
+        console.log(i);
       }
     },
     error: function (xhr, status, error) {
@@ -184,7 +237,7 @@ $(document).ready(function () {
   });
 
   $.ajax({
-    url: "http://localhost:8000/api/catalog",
+    url: url + "catalog",
     method: "GET",
     success: function (response) {
       console.log(response);
@@ -196,13 +249,15 @@ $(document).ready(function () {
       for (let i = 0; i < response["data"].length; i++) {
         // console.log("a")
         // console.log(data[""])
+        if (response["data"][i]["status"] == 0) {
+          continue;
+        }
         if (i <= 3) {
-          let html = 
-          `
+          let html = `
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
               <div class="cardbox_catalog rounded shadow">
                 <img
-                  src="assets/catalog/thunder.jpg"
+                  src="${response["data"][i]["image"]}"
                   alt=""
                   class="img-fluid rounded"
                 />
@@ -222,15 +277,14 @@ $(document).ready(function () {
               </div>
             </div>
           `;
-          console.log(html)
+          console.log(html);
           catalogDataElementBaris1.append(html);
-        } else if (i > 3  && i <= 7) {
-          let html = 
-          `
+        } else if (i > 3 && i <= 7) {
+          let html = `
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
               <div class="cardbox_catalog rounded shadow">
                 <img
-                  src="assets/catalog/thunder.jpg"
+                  src="${response["data"][i]["image"]}"
                   alt=""
                   class="img-fluid rounded"
                 />
@@ -251,14 +305,12 @@ $(document).ready(function () {
             </div>
           `;
           catalogDataElementBaris2.append(html);
-
         } else if (i > 7 && i <= 9) {
-          let html = 
-          `
+          let html = `
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
               <div class="cardbox_catalog rounded shadow">
                 <img
-                  src="assets/catalog/thunder.jpg"
+                  src="${response["data"][i]["image"]}"
                   alt=""
                   class="img-fluid rounded"
                 />
@@ -279,13 +331,11 @@ $(document).ready(function () {
             </div>
           `;
           catalogDataElementBaris3.append(html);
-
         } else {
-          return
+          return;
         }
 
-        console.log(i)
-
+        console.log(i);
       }
     },
     error: function (xhr, status, error) {
@@ -294,7 +344,7 @@ $(document).ready(function () {
   });
 
   $.ajax({
-    url: "http://localhost:8000/api/team",
+    url: url + "team",
     method: "GET",
     success: function (response) {
       console.log(response);
@@ -305,6 +355,9 @@ $(document).ready(function () {
       let teamDataElement = $(".our_team_anggota");
 
       for (let i = 0; i < response["data"].length; i++) {
+        if (response["data"][i]["status"] == 0) {
+          continue;
+        }
         // console.log("a")
         // console.log(data[""])
         let html =
@@ -351,7 +404,7 @@ $(document).ready(function () {
           "</div>" +
           "</div>";
 
-          console.log(html)
+        console.log(html);
         teamDataElement.append(html);
       }
     },

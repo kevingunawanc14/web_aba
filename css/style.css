@@ -217,7 +217,9 @@ li {
 .our_team_1 {
   position: relative;
 }
-
+.our_team_1 img{
+  max-width: 50%;
+}
 .our_team_1 .wrapTrapezoid {
   position: absolute;
   top: 18%;
