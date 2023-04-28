@@ -139,11 +139,11 @@ $(document).ready(function () {
     method: "GET",
     success: function (response) {
       console.log(response);
-      console.log(response["data"]);
-      console.log(response["data"][0]);
-      console.log(response["data"][0]["nama"]);
+      // console.log(response["data"]);
+      // console.log(response["data"][0]);
+      // console.log(response["data"][0]["nama"]);
 
-      console.log(response["data"].length);
+      // console.log(response["data"].length);
 
       let productDataElement = $(".ourProductIndex");
 
@@ -153,6 +153,8 @@ $(document).ready(function () {
         if (response["data"][i]["status"] == 0) {
           continue;
         }
+        console.log("a")
+
         let html = `
         <div class="col-sm-6 col-md-6 col-lg-3">
           <div class="card mb-4 shadow">
@@ -236,182 +238,182 @@ $(document).ready(function () {
     },
   });
 
-  $.ajax({
-    url: url + "catalog",
-    method: "GET",
-    success: function (response) {
-      console.log(response);
+  // $.ajax({
+  //   url: url + "catalog",
+  //   method: "GET",
+  //   success: function (response) {
+  //     console.log(response);
 
-      let catalogDataElementBaris1 = $(".catalogBaris1");
-      let catalogDataElementBaris2 = $(".catalogBaris2");
-      let catalogDataElementBaris3 = $(".catalogBaris3");
+  //     let catalogDataElementBaris1 = $(".catalogBaris1");
+  //     let catalogDataElementBaris2 = $(".catalogBaris2");
+  //     let catalogDataElementBaris3 = $(".catalogBaris3");
 
-      for (let i = 0; i < response["data"].length; i++) {
-        // console.log("a")
-        // console.log(data[""])
-        if (response["data"][i]["status"] == 0) {
-          continue;
-        }
-        if (i <= 3) {
-          let html = `
-            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-              <div class="cardbox_catalog rounded shadow">
-                <img
-                  src="${response["data"][i]["image"]}"
-                  alt=""
-                  class="img-fluid rounded"
-                />
+  //     for (let i = 0; i < response["data"].length; i++) {
+  //       // console.log("a")
+  //       // console.log(data[""])
+  //       if (response["data"][i]["status"] == 0) {
+  //         continue;
+  //       }
+  //       if (i <= 3) {
+  //         let html = `
+  //           <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+  //             <div class="cardbox_catalog rounded shadow">
+  //               <img
+  //                 src="${response["data"][i]["image"]}"
+  //                 alt=""
+  //                 class="img-fluid rounded"
+  //               />
   
-                <div class="content_catalog rounded">
-                  <a
-                    href="catalog/Thunder Board Brochure.pdf"
-                    target="_blank"
-                    class="btn btn-info rounded-pill btn-md"
-                    ><i class="fas fa-cloud-download-alt"></i> Download</a
-                  >
-                </div>
-              </div>
-              <div class="content_catalog_1 text-start">
-                <p class="blueColor fw-bold mb-0 mt-2">${response["data"][i]["nama"]}</p>
-                <p class="redColor">${response["data"][i]["judul"]}</p>
-              </div>
-            </div>
-          `;
-          console.log(html);
-          catalogDataElementBaris1.append(html);
-        } else if (i > 3 && i <= 7) {
-          let html = `
-            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-              <div class="cardbox_catalog rounded shadow">
-                <img
-                  src="${response["data"][i]["image"]}"
-                  alt=""
-                  class="img-fluid rounded"
-                />
+  //               <div class="content_catalog rounded">
+  //                 <a
+  //                   href="catalog/Thunder Board Brochure.pdf"
+  //                   target="_blank"
+  //                   class="btn btn-info rounded-pill btn-md"
+  //                   ><i class="fas fa-cloud-download-alt"></i> Download</a
+  //                 >
+  //               </div>
+  //             </div>
+  //             <div class="content_catalog_1 text-start">
+  //               <p class="blueColor fw-bold mb-0 mt-2">${response["data"][i]["nama"]}</p>
+  //               <p class="redColor">${response["data"][i]["judul"]}</p>
+  //             </div>
+  //           </div>
+  //         `;
+  //         console.log(html);
+  //         catalogDataElementBaris1.append(html);
+  //       } else if (i > 3 && i <= 7) {
+  //         let html = `
+  //           <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+  //             <div class="cardbox_catalog rounded shadow">
+  //               <img
+  //                 src="${response["data"][i]["image"]}"
+  //                 alt=""
+  //                 class="img-fluid rounded"
+  //               />
   
-                <div class="content_catalog rounded">
-                  <a
-                    href="catalog/Thunder Board Brochure.pdf"
-                    target="_blank"
-                    class="btn btn-info rounded-pill btn-md"
-                    ><i class="fas fa-cloud-download-alt"></i> Download</a
-                  >
-                </div>
-              </div>
-              <div class="content_catalog_1 text-start">
-                <p class="blueColor fw-bold mb-0 mt-2">${response["data"][i]["nama"]}</p>
-                <p class="redColor">${response["data"][i]["judul"]}</p>
-              </div>
-            </div>
-          `;
-          catalogDataElementBaris2.append(html);
-        } else if (i > 7 && i <= 9) {
-          let html = `
-            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-              <div class="cardbox_catalog rounded shadow">
-                <img
-                  src="${response["data"][i]["image"]}"
-                  alt=""
-                  class="img-fluid rounded"
-                />
+  //               <div class="content_catalog rounded">
+  //                 <a
+  //                   href="catalog/Thunder Board Brochure.pdf"
+  //                   target="_blank"
+  //                   class="btn btn-info rounded-pill btn-md"
+  //                   ><i class="fas fa-cloud-download-alt"></i> Download</a
+  //                 >
+  //               </div>
+  //             </div>
+  //             <div class="content_catalog_1 text-start">
+  //               <p class="blueColor fw-bold mb-0 mt-2">${response["data"][i]["nama"]}</p>
+  //               <p class="redColor">${response["data"][i]["judul"]}</p>
+  //             </div>
+  //           </div>
+  //         `;
+  //         catalogDataElementBaris2.append(html);
+  //       } else if (i > 7 && i <= 9) {
+  //         let html = `
+  //           <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+  //             <div class="cardbox_catalog rounded shadow">
+  //               <img
+  //                 src="${response["data"][i]["image"]}"
+  //                 alt=""
+  //                 class="img-fluid rounded"
+  //               />
   
-                <div class="content_catalog rounded">
-                  <a
-                    href="catalog/Thunder Board Brochure.pdf"
-                    target="_blank"
-                    class="btn btn-info rounded-pill btn-md"
-                    ><i class="fas fa-cloud-download-alt"></i> Download</a
-                  >
-                </div>
-              </div>
-              <div class="content_catalog_1 text-start">
-                <p class="blueColor fw-bold mb-0 mt-2">${response["data"][i]["nama"]}</p>
-                <p class="redColor">${response["data"][i]["judul"]}</p>
-              </div>
-            </div>
-          `;
-          catalogDataElementBaris3.append(html);
-        } else {
-          return;
-        }
+  //               <div class="content_catalog rounded">
+  //                 <a
+  //                   href="catalog/Thunder Board Brochure.pdf"
+  //                   target="_blank"
+  //                   class="btn btn-info rounded-pill btn-md"
+  //                   ><i class="fas fa-cloud-download-alt"></i> Download</a
+  //                 >
+  //               </div>
+  //             </div>
+  //             <div class="content_catalog_1 text-start">
+  //               <p class="blueColor fw-bold mb-0 mt-2">${response["data"][i]["nama"]}</p>
+  //               <p class="redColor">${response["data"][i]["judul"]}</p>
+  //             </div>
+  //           </div>
+  //         `;
+  //         catalogDataElementBaris3.append(html);
+  //       } else {
+  //         return;
+  //       }
 
-        console.log(i);
-      }
-    },
-    error: function (xhr, status, error) {
-      console.error(error);
-    },
-  });
+  //       console.log(i);
+  //     }
+  //   },
+  //   error: function (xhr, status, error) {
+  //     console.error(error);
+  //   },
+  // });
 
-  $.ajax({
-    url: url + "team",
-    method: "GET",
-    success: function (response) {
-      console.log(response);
-      // console.log(response[0]["data"]["nama"]);
+  // $.ajax({
+  //   url: url + "team",
+  //   method: "GET",
+  //   success: function (response) {
+  //     console.log(response);
+  //     // console.log(response[0]["data"]["nama"]);
 
-      // console.log(response.length)
+  //     // console.log(response.length)
 
-      let teamDataElement = $(".our_team_anggota");
+  //     let teamDataElement = $(".our_team_anggota");
 
-      for (let i = 0; i < response["data"].length; i++) {
-        if (response["data"][i]["status"] == 0) {
-          continue;
-        }
-        // console.log("a")
-        // console.log(data[""])
-        let html =
-          '<div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3 text-center">' +
-          '<div class="our_team_1 mb-5">' +
-          '<img src="' +
-          response["data"][i]["image"] +
-          '" alt="asiabangunabadi" />' +
-          '<div class="wrapTrapezoid">' +
-          '<div class="trapezoid">' +
-          '<p class="text-white pt-3">' +
-          response["data"][i]["nama"] +
-          ' <span class="text-black"><br />' +
-          response["data"][i]["jabatan"] +
-          "</span></p>" +
-          "</div>" +
-          "</div>" +
-          '<div class="shadow p-3 p-md-5 borderCeo">' +
-          '<div class="row">' +
-          '<p class="my-5">' +
-          response["data"][i]["deskripsi"] +
-          "</p>" +
-          "</div>" +
-          '<div class="row">' +
-          '<div class="col-12">' +
-          '<button href="' +
-          response["data"][i]["linkedin"] +
-          '" type="button" class="btn btn-dark rounded-circle">' +
-          '<i class="fa-brands fa-linkedin-in"></i>' +
-          "</button>" +
-          '<button href="' +
-          response["data"][i]["facebook"] +
-          '" type="button" class="btn btn-dark rounded-circle">' +
-          '<i class="fa-brands fa-facebook-f"></i>' +
-          "</button>" +
-          '<button href="' +
-          response["data"][i]["instagram"] +
-          '" type="button" class="btn btn-dark rounded-circle">' +
-          '<i class="fa-brands fa-twitter"></i>' +
-          "</button>" +
-          "</div>" +
-          "</div>" +
-          "</div>" +
-          "</div>" +
-          "</div>";
+  //     for (let i = 0; i < response["data"].length; i++) {
+  //       if (response["data"][i]["status"] == 0) {
+  //         continue;
+  //       }
+  //       // console.log("a")
+  //       // console.log(data[""])
+  //       let html =
+  //         '<div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3 text-center">' +
+  //         '<div class="our_team_1 mb-5">' +
+  //         '<img src="' +
+  //         response["data"][i]["image"] +
+  //         '" alt="asiabangunabadi" />' +
+  //         '<div class="wrapTrapezoid">' +
+  //         '<div class="trapezoid">' +
+  //         '<p class="text-white pt-3">' +
+  //         response["data"][i]["nama"] +
+  //         ' <span class="text-black"><br />' +
+  //         response["data"][i]["jabatan"] +
+  //         "</span></p>" +
+  //         "</div>" +
+  //         "</div>" +
+  //         '<div class="shadow p-3 p-md-5 borderCeo">' +
+  //         '<div class="row">' +
+  //         '<p class="my-5">' +
+  //         response["data"][i]["deskripsi"] +
+  //         "</p>" +
+  //         "</div>" +
+  //         '<div class="row">' +
+  //         '<div class="col-12">' +
+  //         '<button href="' +
+  //         response["data"][i]["linkedin"] +
+  //         '" type="button" class="btn btn-dark rounded-circle">' +
+  //         '<i class="fa-brands fa-linkedin-in"></i>' +
+  //         "</button>" +
+  //         '<button href="' +
+  //         response["data"][i]["facebook"] +
+  //         '" type="button" class="btn btn-dark rounded-circle">' +
+  //         '<i class="fa-brands fa-facebook-f"></i>' +
+  //         "</button>" +
+  //         '<button href="' +
+  //         response["data"][i]["instagram"] +
+  //         '" type="button" class="btn btn-dark rounded-circle">' +
+  //         '<i class="fa-brands fa-twitter"></i>' +
+  //         "</button>" +
+  //         "</div>" +
+  //         "</div>" +
+  //         "</div>" +
+  //         "</div>" +
+  //         "</div>";
 
-        console.log(html);
-        teamDataElement.append(html);
-      }
-    },
-    error: function (xhr, status, error) {
-      console.error(error);
-    },
-  });
+  //       console.log(html);
+  //       teamDataElement.append(html);
+  //     }
+  //   },
+  //   error: function (xhr, status, error) {
+  //     console.error(error);
+  //   },
+  // });
 });
 
 // function fetchDataFromAPICatalog() {
