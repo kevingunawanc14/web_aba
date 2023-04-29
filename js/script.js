@@ -191,35 +191,39 @@ $(document).ready(function () {
 
       for (let i = 0; i < response["data"].length; i++) {
 
+      
         if (counterIsi == 0) {
           htmlPageProduct += `<div class="row">`
 
         }
 
-        htmlPageProduct += 
-        ` 
-        <div class="col-sm-6 col-md-6 col-lg-3">
-          <div class="card mb-4 shadow">
-            <img
-              src="${response["data"][i]["image"]}"
-              class="card-img-top img-fluid"
-              alt="Product 1"
-            />
-            <div class="card-body">
-              <p class="card-text">${response["data"][i]["nama"]}</p>
-              <p class="text-muted fs-6 text">${response["data"][i]["harga"]}</p>
-              <p class="text-muted fs-6 text">${response["data"][i]["deskripsi"]}</p>
-
-              <button href="${response["data"][i]["link"]}"
-                type="button"
-                class="cartButton btn btn-outline-dark rounded-pill btn-lg"
-              >
-                <i class="fa-brands fa-whatsapp"></i> ORDER
-              </button>
+        if (response["data"][i]["status"] != 0) {
+          htmlPageProduct += 
+          ` 
+          <div class="col-sm-6 col-md-6 col-lg-3">
+            <div class="card mb-4 shadow">
+              <img
+                src="${response["data"][i]["image"]}"
+                class="card-img-top img-fluid"
+                alt="Product 1"
+              />
+              <div class="card-body">
+                <p class="card-text">${response["data"][i]["nama"]}</p>
+                <p class="text-muted fs-6 text">${response["data"][i]["harga"]}</p>
+                <p class="text-muted fs-6 text">${response["data"][i]["deskripsi"]}</p>
+  
+                <button href="${response["data"][i]["link"]}"
+                  type="button"
+                  class="cartButton btn btn-outline-dark rounded-pill btn-lg"
+                >
+                  <i class="fa-brands fa-whatsapp"></i> ORDER
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        `
+          `
+        }
+       
         
         if (counterIsi == 3 || counterIsi1 == response["data"].length-1) {
           htmlPageProduct += `</div>`
@@ -285,7 +289,7 @@ $(document).ready(function () {
               </div>
             </div>
           `;
-          console.log(html);
+          // console.log(html);
           catalogDataElementBaris1.append(html);
         } else if (i > 3 && i <= 7) {
           let html = `
