@@ -134,111 +134,115 @@ $(function () {
 // get api
 $(document).ready(function () {
   let url = "http://localhost:8000/api/";
-  // $.ajax({
-  //   url: url + "product",
-  //   method: "GET",
-  //   success: function (response) {
-  //     console.log(response);
-  //     // console.log(response["data"]);
-  //     // console.log(response["data"][0]);
-  //     // console.log(response["data"][0]["nama"]);
+  $.ajax({
+    url: url + "product",
+    method: "GET",
+    success: function (response) {
+      console.log(response);
+      // console.log(response["data"]);
+      // console.log(response["data"][0]);
+      // console.log(response["data"][0]["nama"]);
 
-  //     // console.log(response["data"].length);
+      // console.log(response["data"].length);
 
-  //     let productDataElement = $(".ourProductIndex");
+      let productDataElement = $(".ourProductIndex");
 
-  //     for (let i = 0; i < response["data"].length && i < 4; i++) {
-  //       // console.log("a")
-  //       // console.log(data[""])
-  //       if (response["data"][i]["status"] == 0) {
-  //         continue;
-  //       }
-  //       console.log("a")
+      for (let i = 0; i < response["data"].length && i < 4; i++) {
+        // console.log("a")
+        // console.log(data[""])
+        if (response["data"][i]["status"] == 0) {
+          continue;
+        }
+        // console.log("a")
 
-  //       let html = `
-  //       <div class="col-sm-6 col-md-6 col-lg-3">
-  //         <div class="card mb-4 shadow">
-  //           <img
-  //             src="${response["data"][i]["image"]}"
-  //             class="card-img-top img-fluid"
-  //             alt="Product 1"
-  //           />
-  //           <div class="card-body">
-  //             <p class="card-text">${response["data"][i]["nama"]}</p>
-  //             <p class="text-muted fs-6 text">${response["data"][i]["harga"]}</p>
-  //             <p class="text-muted fs-6 text">${response["data"][i]["deskripsi"]}</p>
+        let html = `
+        <div class="col-sm-6 col-md-6 col-lg-3">
+          <div class="card mb-4 shadow">
+            <img
+              src="${response["data"][i]["image"]}"
+              class="card-img-top img-fluid"
+              alt="Product 1"
+            />
+            <div class="card-body">
+              <p class="card-text">${response["data"][i]["nama"]}</p>
+              <p class="text-muted fs-6 text">${response["data"][i]["harga"]}</p>
+              <p class="text-muted fs-6 text">${response["data"][i]["deskripsi"]}</p>
 
-  //             <button href="${response["data"][i]["link"]}"
-  //               type="button"
-  //               class="cartButton btn btn-outline-dark rounded-pill btn-lg"
-  //             >
-  //               <i class="fa-brands fa-whatsapp"></i> ORDER
-  //             </button>
-  //           </div>
-  //         </div>
-  //       </div>
-  //       `;
-  //       productDataElement.append(html);
-  //       console.log(i);
-  //     }
+              <button href="${response["data"][i]["link"]}"
+                type="button"
+                class="cartButton btn btn-outline-dark rounded-pill btn-lg"
+              >
+                <i class="fa-brands fa-whatsapp"></i> ORDER
+              </button>
+            </div>
+          </div>
+        </div>
+        `;
+        productDataElement.append(html);
+        // console.log(i);
+      }
 
-  //     let pageProductData = $(".product-page");
+      let pageProductData = $(".product-page");
 
-  //     for (let i = 0; i < response["data"].length; i++) {
-  //       if (response["data"][i]["status"] == 0) {
-  //         continue;
-  //       }
-  //       // console.log("aaa")
-  //       let html = `<div class="row mt-5">`;
-  //       let counter = 0
-  //       let urutanSekarang = 0
-  //       // console.log("a")
-  //       // console.log(data[""])
-  //           for (let j = i; j < 1; j++) {
-  //             if (counter > 4){
-  //               break
-  //             }
-  //             console.log
-  //       //       html += `     
-  //       //         <div class="col-md-6 col-lg-3">
-  //       //           <div class="card mb-4 shadow">
-  //       //             <img
-  //       //               src="${response["data"][j]["image"]}"
-  //       //               class="card-img-top img-fluid"
-  //       //               alt="Product 1"
-  //       //             />
-  //       //             <div class="card-body">
-  //       //               <p class="card-text">${response["data"][j]["nama"]}</p>
-  //       //               <p class="text-muted fs-6 text">${response["data"][j]["harga"]}</p>
-  //       //               <p class="text-muted fs-6 text">
-  //       //               ${response["data"][j]["deskripsi"]}
-  //       //               </p>
+      var htmlPageProduct=""
+      var counterIsi = 0
+      var counterIsi1 = 0
 
-  //       //               <button href="${response["data"][j]["link"]}"
-  //       //                 type="button"
-  //       //                 class="cartButton btn btn-outline-dark rounded-pill btn-lg"
-  //       //               >
-  //       //                 <i class="fa-brands fa-whatsapp"></i> ORDER
-  //       //               </button>
-  //       //             </div>
-  //       //           </div>
-  //       //         </div>`;
-  //       //         counter+=1
-  //       //         urutanSekarang+=1
-  //           }
 
-  //           i = urutanSekarang; 
+      for (let i = 0; i < response["data"].length; i++) {
 
-  //       html += `</div>`;
+        if (counterIsi == 0) {
+          htmlPageProduct += `<div class="row">`
 
-  //       pageProductData.append(html);
-  //       console.log(i);
-  //     }
-  //   },
-  //   error: function (xhr, status, error) {
-  //     console.error(error);
-  //   },
-  // });
+        }
+
+        htmlPageProduct += 
+        ` 
+        <div class="col-sm-6 col-md-6 col-lg-3">
+          <div class="card mb-4 shadow">
+            <img
+              src="${response["data"][i]["image"]}"
+              class="card-img-top img-fluid"
+              alt="Product 1"
+            />
+            <div class="card-body">
+              <p class="card-text">${response["data"][i]["nama"]}</p>
+              <p class="text-muted fs-6 text">${response["data"][i]["harga"]}</p>
+              <p class="text-muted fs-6 text">${response["data"][i]["deskripsi"]}</p>
+
+              <button href="${response["data"][i]["link"]}"
+                type="button"
+                class="cartButton btn btn-outline-dark rounded-pill btn-lg"
+              >
+                <i class="fa-brands fa-whatsapp"></i> ORDER
+              </button>
+            </div>
+          </div>
+        </div>
+        `
+        
+        if (counterIsi == 3 || counterIsi1 == response["data"].length-1) {
+          htmlPageProduct += `</div>`
+          counterIsi = -1
+         console.log(htmlPageProduct)
+      
+          pageProductData.append(htmlPageProduct)
+          htmlPageProduct = ""
+        }
+
+        // console.log(i)
+        counterIsi1+=1
+        counterIsi+=1
+      }
+
+
+
+
+    },
+    error: function (xhr, status, error) {
+      console.error(error);
+    },
+  });
 
   $.ajax({
     url: url + "catalog",
@@ -265,7 +269,7 @@ $(document).ready(function () {
                   alt=""
                   class="img-fluid rounded"
                 />
-  
+
                 <div class="content_catalog rounded">
                   <a
                     href="catalog/Thunder Board Brochure.pdf"
@@ -292,7 +296,7 @@ $(document).ready(function () {
                   alt=""
                   class="img-fluid rounded"
                 />
-  
+
                 <div class="content_catalog rounded">
                   <a
                     href="catalog/Thunder Board Brochure.pdf"
@@ -318,7 +322,7 @@ $(document).ready(function () {
                   alt=""
                   class="img-fluid rounded"
                 />
-  
+
                 <div class="content_catalog rounded">
                   <a
                     href="catalog/Thunder Board Brochure.pdf"
@@ -358,7 +362,7 @@ $(document).ready(function () {
 
       let teamDataElement = $(".our_team_anggota");
 
-      for (let i = 0; i < response["data"].length; i++) {
+      for (let i = 0; i < 4; i++) {
         if (response["data"][i]["status"] == 0) {
           continue;
         }
@@ -389,17 +393,17 @@ $(document).ready(function () {
           '<div class="col-12">' +
           '<button href="' +
           response["data"][i]["linkedin"] +
-          '" type="button" class="btn btn-dark rounded-circle ' +(response["data"][i]["linkedin"] ? '' : 'hidden') + ' ">' +
+          '" type="button" class="btn btn-dark rounded-circle ' + (response["data"][i]["linkedin"] ? '' : 'hidden') + ' ">' +
           '<i class="fa-brands fa-linkedin-in"></i>' +
           "</button>" +
           '<button href="' +
           response["data"][i]["facebook"] +
-          '" type="button" class="btn btn-dark rounded-circle ' +(response["data"][i]["facebook"] ? '' : 'hidden') + ' ">' +
+          '" type="button" class="btn btn-dark rounded-circle ' + (response["data"][i]["facebook"] ? '' : 'hidden') + ' ">' +
           '<i class="fa-brands fa-facebook-f"></i>' +
           "</button>" +
           '<button href="' +
           response["data"][i]["instagram"] +
-          '" type="button" class="btn btn-dark rounded-circle ' +(response["data"][i]["instagram"] ? '' : 'hidden') + ' ">' +
+          '" type="button" class="btn btn-dark rounded-circle ' + (response["data"][i]["instagram"] ? '' : 'hidden') + ' ">' +
           '<i class="fa-brands fa-twitter"></i>' +
           "</button>" +
           "</div>" +
