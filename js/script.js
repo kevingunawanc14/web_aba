@@ -138,7 +138,7 @@ $(document).ready(function () {
     url: url + "product",
     method: "GET",
     success: function (response) {
-      console.log(response);
+      // console.log(response);
       // console.log(response["data"]);
       // console.log(response["data"][0]);
       // console.log(response["data"][0]["nama"]);
@@ -147,7 +147,9 @@ $(document).ready(function () {
 
       let productDataElement = $(".ourProductIndex");
 
-      for (let i = 0; i < response["data"].length && i < 4; i++) {
+      var counterData = 0
+
+      for (let i = 0; i < response["data"].length && counterData < 4; i++) {
         // console.log("a")
         // console.log(data[""])
         if (response["data"][i]["status"] == 0) {
@@ -179,6 +181,7 @@ $(document).ready(function () {
         </div>
         `;
         productDataElement.append(html);
+        counterData+=1
         // console.log(i);
       }
 
@@ -188,16 +191,38 @@ $(document).ready(function () {
       var counterIsi = 0
       var counterIsi1 = 0
 
+      // console.log(response["data"].length)
+      console.log(response["data"])
+      // return
+
+      var aktifCounter = 0;
+
+      for (let i = 0; i < response["data"].length; i++) {
+        if (response["data"][i]["status"] == "1") {
+          aktifCounter++;
+        }
+      }
+
 
       for (let i = 0; i < response["data"].length; i++) {
 
+        if (response["data"][i]["status"] == 0) {
+          continue;
+        }
+
+        if(i == 8){
+          console.log("*bust")
+          console.log(counterIsi)
+          console.log(counterIsi1)
+
+        }
       
         if (counterIsi == 0) {
           htmlPageProduct += `<div class="row">`
 
         }
 
-        if (response["data"][i]["status"] != 0) {
+        
           htmlPageProduct += 
           ` 
           <div class="col-sm-6 col-md-6 col-lg-3">
@@ -222,10 +247,10 @@ $(document).ready(function () {
             </div>
           </div>
           `
-        }
+        
        
         
-        if (counterIsi == 3 || counterIsi1 == response["data"].length-1) {
+        if (counterIsi == 3 || counterIsi1 == aktifCounter-1) {
           htmlPageProduct += `</div>`
           counterIsi = -1
          console.log(htmlPageProduct)
@@ -234,7 +259,7 @@ $(document).ready(function () {
           htmlPageProduct = ""
         }
 
-        // console.log(i)
+        console.log(i)
         counterIsi1+=1
         counterIsi+=1
       }
@@ -252,7 +277,7 @@ $(document).ready(function () {
     url: url + "catalog",
     method: "GET",
     success: function (response) {
-      console.log(response);
+      // console.log(response);
 
       let catalogDataElementBaris1 = $(".catalogBaris1");
       let catalogDataElementBaris2 = $(".catalogBaris2");
@@ -347,7 +372,7 @@ $(document).ready(function () {
           return;
         }
 
-        console.log(i);
+        // console.log(i);
       }
     },
     error: function (xhr, status, error) {
@@ -359,14 +384,16 @@ $(document).ready(function () {
     url: url + "team",
     method: "GET",
     success: function (response) {
-      console.log(response);
+      // console.log(response);
       // console.log(response[0]["data"]["nama"]);
 
       // console.log(response.length)
 
       let teamDataElement = $(".our_team_anggota");
 
-      for (let i = 0; i < 4; i++) {
+      var counterData = 0
+
+      for (let i = 0; i < response["data"].length && counterData < 4; i++) {
         if (response["data"][i]["status"] == 0) {
           continue;
         }
@@ -416,8 +443,9 @@ $(document).ready(function () {
           "</div>" +
           "</div>";
 
-        console.log(html);
+        // console.log(html);
         teamDataElement.append(html);
+        counterData+=1
       }
     },
     error: function (xhr, status, error) {
