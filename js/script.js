@@ -192,7 +192,7 @@ $(document).ready(function () {
       var counterIsi1 = 0
 
       // console.log(response["data"].length)
-      console.log(response["data"])
+      // console.log(response["data"])
       // return
 
       var aktifCounter = 0;
@@ -211,7 +211,6 @@ $(document).ready(function () {
         }
 
         if(i == 8){
-          console.log("*bust")
           console.log(counterIsi)
           console.log(counterIsi1)
 
@@ -253,13 +252,13 @@ $(document).ready(function () {
         if (counterIsi == 3 || counterIsi1 == aktifCounter-1) {
           htmlPageProduct += `</div>`
           counterIsi = -1
-         console.log(htmlPageProduct)
+        //  console.log(htmlPageProduct)
       
           pageProductData.append(htmlPageProduct)
           htmlPageProduct = ""
         }
 
-        console.log(i)
+        // console.log(i)
         counterIsi1+=1
         counterIsi+=1
       }
@@ -277,7 +276,7 @@ $(document).ready(function () {
     url: url + "catalog",
     method: "GET",
     success: function (response) {
-      // console.log(response);
+      console.log(response);
 
       let catalogDataElementBaris1 = $(".catalogBaris1");
       let catalogDataElementBaris2 = $(".catalogBaris2");
@@ -301,7 +300,7 @@ $(document).ready(function () {
 
                 <div class="content_catalog rounded">
                   <a
-                    href="catalog/Thunder Board Brochure.pdf"
+                    href="${response["data"][i]["pdf"]}"
                     target="_blank"
                     class="btn btn-info rounded-pill btn-md"
                     ><i class="fas fa-cloud-download-alt"></i> Download</a
@@ -328,7 +327,7 @@ $(document).ready(function () {
 
                 <div class="content_catalog rounded">
                   <a
-                    href="catalog/Thunder Board Brochure.pdf"
+                    href="${response["data"][i]["pdf"]}"
                     target="_blank"
                     class="btn btn-info rounded-pill btn-md"
                     ><i class="fas fa-cloud-download-alt"></i> Download</a
@@ -354,7 +353,7 @@ $(document).ready(function () {
 
                 <div class="content_catalog rounded">
                   <a
-                    href="catalog/Thunder Board Brochure.pdf"
+                    href="${response["data"][i]["pdf"]}"
                     target="_blank"
                     class="btn btn-info rounded-pill btn-md"
                     ><i class="fas fa-cloud-download-alt"></i> Download</a
