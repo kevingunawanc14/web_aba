@@ -170,12 +170,12 @@ $(document).ready(function () {
               <p class="text-muted fs-6 text">${response["data"][i]["harga"]}</p>
               <p class="text-muted fs-6 text">${response["data"][i]["deskripsi"]}</p>
 
-              <button href="${response["data"][i]["link"]}"
+              <a href="${response["data"][i]["link"]}"
                 type="button"
                 class="cartButton btn btn-outline-dark rounded-pill btn-lg"
               >
                 <i class="fa-brands fa-whatsapp"></i> ORDER
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -236,12 +236,12 @@ $(document).ready(function () {
                 <p class="text-muted fs-6 text">${response["data"][i]["harga"]}</p>
                 <p class="text-muted fs-6 text">${response["data"][i]["deskripsi"]}</p>
   
-                <button href="${response["data"][i]["link"]}"
+                <a href="${response["data"][i]["link"]}"
                   type="button"
                   class="cartButton btn btn-outline-dark rounded-pill btn-lg"
                 >
                   <i class="fa-brands fa-whatsapp"></i> ORDER
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -421,21 +421,21 @@ $(document).ready(function () {
           "</div>" +
           '<div class="row">' +
           '<div class="col-12">' +
-          '<button href="' +
+          '<a href="' + 'https://www.linkedin.com/in/' +
           response["data"][i]["linkedin"] +
           '" type="button" class="btn btn-dark rounded-circle ' + (response["data"][i]["linkedin"] ? '' : 'hidden') + ' ">' +
           '<i class="fa-brands fa-linkedin-in"></i>' +
-          "</button>" +
-          '<button href="' +
+          "</a>" +
+          '<a href="' + 'https://www.facebook.com/' +
           response["data"][i]["facebook"] +
           '" type="button" class="btn btn-dark rounded-circle ' + (response["data"][i]["facebook"] ? '' : 'hidden') + ' ">' +
           '<i class="fa-brands fa-facebook-f"></i>' +
-          "</button>" +
-          '<button href="' +
+          "</a>" +
+          '<a href="' + 'https://www.instagram.com/' +
           response["data"][i]["instagram"] +
           '" type="button" class="btn btn-dark rounded-circle ' + (response["data"][i]["instagram"] ? '' : 'hidden') + ' ">' +
           '<i class="fa-brands fa-twitter"></i>' +
-          "</button>" +
+          "</a>" +
           "</div>" +
           "</div>" +
           "</div>" +
