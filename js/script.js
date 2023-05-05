@@ -170,12 +170,12 @@ $(document).ready(function () {
               <p class="text-muted fs-6 text">${response["data"][i]["harga"]}</p>
               <p class="text-muted fs-6 text">${response["data"][i]["deskripsi"]}</p>
 
-              <a href="${response["data"][i]["link"]}"
+              <button onclick="location.href='${response["data"][i]["link"]}'"
                 type="button"
                 class="cartButton btn btn-outline-dark rounded-pill btn-lg"
               >
                 <i class="fa-brands fa-whatsapp"></i> ORDER
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -236,12 +236,12 @@ $(document).ready(function () {
                 <p class="text-muted fs-6 text">${response["data"][i]["harga"]}</p>
                 <p class="text-muted fs-6 text">${response["data"][i]["deskripsi"]}</p>
   
-                <a href="${response["data"][i]["link"]}"
+                <button onclick="location.href='${response["data"][i]["link"]}'"
                   type="button"
                   class="cartButton btn btn-outline-dark rounded-pill btn-lg"
                 >
                   <i class="fa-brands fa-whatsapp"></i> ORDER
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -299,11 +299,11 @@ $(document).ready(function () {
                 />
 
                 <div class="content_catalog rounded">
-                  <a
-                    href="${response["data"][i]["pdf"]}"
+                  <button
+                  onclick="location.href='${response["data"][i]["pdf"]}'"
                     target="_blank"
                     class="btn btn-info rounded-pill btn-md"
-                    ><i class="fas fa-cloud-download-alt"></i> Download</a
+                    ><i class="fas fa-cloud-download-alt"></i> Download</button
                   >
                 </div>
               </div>
@@ -326,11 +326,11 @@ $(document).ready(function () {
                 />
 
                 <div class="content_catalog rounded">
-                  <a
-                    href="${response["data"][i]["pdf"]}"
+                  <button
+                   onclick="location.href='${response["data"][i]["pdf"]}'"
                     target="_blank"
                     class="btn btn-info rounded-pill btn-md"
-                    ><i class="fas fa-cloud-download-alt"></i> Download</a
+                    ><i class="fas fa-cloud-download-alt"></i> Download</button
                   >
                 </div>
               </div>
@@ -352,11 +352,11 @@ $(document).ready(function () {
                 />
 
                 <div class="content_catalog rounded">
-                  <a
-                    href="${response["data"][i]["pdf"]}"
+                  <button
+                   onclick="location.href='${response["data"][i]["pdf"]}'"
                     target="_blank"
                     class="btn btn-info rounded-pill btn-md"
-                    ><i class="fas fa-cloud-download-alt"></i> Download</a
+                    ><i class="fas fa-cloud-download-alt"></i> Download</button
                   >
                 </div>
               </div>
@@ -398,50 +398,44 @@ $(document).ready(function () {
         }
         // console.log("a")
         // console.log(data[""])
-        let html =
-          '<div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3 text-center">' +
-          '<div class="our_team_1 mb-5">' +
-          '<img src="' +
-          response["data"][i]["image"] +
-          '" alt="asiabangunabadi" />' +
-          '<div class="wrapTrapezoid">' +
-          '<div class="trapezoid">' +
-          '<p class="text-white pt-3">' +
-          response["data"][i]["nama"] +
-          ' <span class="text-black"><br />' +
-          response["data"][i]["jabatan"] +
-          "</span></p>" +
-          "</div>" +
-          "</div>" +
-          '<div class="shadow p-3 p-md-5 borderCeo">' +
-          '<div class="row">' +
-          '<p class="my-5">' +
-          response["data"][i]["deskripsi"] +
-          "</p>" +
-          "</div>" +
-          '<div class="row">' +
-          '<div class="col-12">' +
-          '<a href="' + 'https://www.linkedin.com/in/' +
-          response["data"][i]["linkedin"] +
-          '" type="button" class="btn btn-dark rounded-circle ' + (response["data"][i]["linkedin"] ? '' : 'hidden') + ' ">' +
-          '<i class="fa-brands fa-linkedin-in"></i>' +
-          "</a>" +
-          '<a href="' + 'https://www.facebook.com/' +
-          response["data"][i]["facebook"] +
-          '" type="button" class="btn btn-dark rounded-circle ' + (response["data"][i]["facebook"] ? '' : 'hidden') + ' ">' +
-          '<i class="fa-brands fa-facebook-f"></i>' +
-          "</a>" +
-          '<a href="' + 'https://www.instagram.com/' +
-          response["data"][i]["instagram"] +
-          '" type="button" class="btn btn-dark rounded-circle ' + (response["data"][i]["instagram"] ? '' : 'hidden') + ' ">' +
-          '<i class="fa-brands fa-twitter"></i>' +
-          "</a>" +
-          "</div>" +
-          "</div>" +
-          "</div>" +
-          "</div>" +
-          "</div>";
-
+        let html = `
+        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 col-xxl-3 text-center">
+          <div class="our_team_1 mb-5">
+            <img src="${response["data"][i]["image"]}" alt="asiabangunabadi" />
+            <div class="wrapTrapezoid">
+              <div class="trapezoid">
+                <p class="text-white pt-3">
+                  ${response["data"][i]["nama"]}
+                  <span class="text-black"><br />
+                    ${response["data"][i]["jabatan"]}
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="shadow p-3 p-md-5 borderCeo">
+              <div class="row">
+                <p class="my-5">
+                  ${response["data"][i]["deskripsi"]}
+                </p>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <button onclick="location.href='${response["data"][i]["linkedin"]}'"" type="button" class="btn btn-dark rounded-circle ${response["data"][i]["linkedin"] ? '' : 'hidden'}">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </button>
+                  <button onclick="location.href='${response["data"][i]["facebook"]}'" type="button" class="btn btn-dark rounded-circle ${response["data"][i]["facebook"] ? '' : 'hidden'}">
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </button>
+                  <button onclick="location.href='${response["data"][i]["instagram"]}'" type="button" class="btn btn-dark rounded-circle ${response["data"][i]["instagram"] ? '' : 'hidden'}">
+                    <i class="fa-brands fa-twitter"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      
         // console.log(html);
         teamDataElement.append(html);
         counterData+=1
