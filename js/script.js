@@ -131,8 +131,8 @@ $(function () {
   });
 });
 
-// get api
 $(document).ready(function () {
+  // get api
   let url = "http://localhost:8000/api/";
   $.ajax({
     url: url + "product",
@@ -181,13 +181,13 @@ $(document).ready(function () {
         </div>
         `;
         productDataElement.append(html);
-        counterData+=1
+        counterData += 1
         // console.log(i);
       }
 
       let pageProductData = $(".product-page");
 
-      var htmlPageProduct=""
+      var htmlPageProduct = ""
       var counterIsi = 0
       var counterIsi1 = 0
 
@@ -210,19 +210,19 @@ $(document).ready(function () {
           continue;
         }
 
-        if(i == 8){
+        if (i == 8) {
           console.log(counterIsi)
           console.log(counterIsi1)
 
         }
-      
+
         if (counterIsi == 0) {
           htmlPageProduct += `<div class="row">`
 
         }
 
-        
-          htmlPageProduct += 
+
+        htmlPageProduct +=
           ` 
           <div class="col-sm-6 col-md-6 col-lg-3">
             <div class="card mb-4 shadow">
@@ -246,21 +246,21 @@ $(document).ready(function () {
             </div>
           </div>
           `
-        
-       
-        
-        if (counterIsi == 3 || counterIsi1 == aktifCounter-1) {
+
+
+
+        if (counterIsi == 3 || counterIsi1 == aktifCounter - 1) {
           htmlPageProduct += `</div>`
           counterIsi = -1
-        //  console.log(htmlPageProduct)
-      
+          //  console.log(htmlPageProduct)
+
           pageProductData.append(htmlPageProduct)
           htmlPageProduct = ""
         }
 
         // console.log(i)
-        counterIsi1+=1
-        counterIsi+=1
+        counterIsi1 += 1
+        counterIsi += 1
       }
 
 
@@ -435,16 +435,117 @@ $(document).ready(function () {
           </div>
         </div>
       `;
-      
+
         // console.log(html);
         teamDataElement.append(html);
-        counterData+=1
+        counterData += 1
       }
     },
     error: function (xhr, status, error) {
       console.error(error);
     },
   });
+
+  // send contact us form
+  $('#form_kirim_email').submit(function (event) {
+    // return alert ("*")
+    event.preventDefault(); // Prevent the default form submission
+    // return alert("*")
+    // Get the form data
+    var formData = {
+      nama: $('#nama').val(),
+      email: $('#email').val(),
+      pesan: $('#pesan').val()
+    };
+
+    // return console.log(formData)
+    // submit
+    // Send the form data to the server-side endpoint using AJAX
+    $.ajax({
+      url: 'http://localhost:8000/api/test1',
+      type: 'POST',
+      dataType: 'json',
+      data: formData,
+      success: function (response) {
+        // Handle the server's response
+        console.log(response);
+        $('#nama + .text-danger').text('');
+        $('#email + .text-danger').text('');
+        $('#pesan + .text-danger').text('');
+
+        alert("Data Sukses Dikirim")
+      },
+      error: function (xhr, status, error) {
+        // Handle the AJAX error
+        console.log(error);
+        console.log(status);
+        console.log(xhr);
+
+        // return  
+        // Remove existing error elements
+        $('#nama + .text-danger').text('');
+        $('#email + .text-danger').text('');
+        $('#pesan + .text-danger').text('');
+
+        // Parse the error response JSON
+        var response = JSON.parse(xhr.responseText);
+        var errorList = response.errors;
+
+        console.log(response)
+        console.log(errorList)
+        // Loop through the error list and create error elements
+        $.each(errorList, function (fieldName, errorMessage) {
+          // Check if the error message is not null
+          console.log(fieldName)
+          console.log(errorMessage)
+
+          if (errorMessage != null) {
+            var inputElement = $('#' + fieldName);
+            var errorElement = $('<span>', {
+              class: 'text-danger',
+              text: errorMessage[0]
+            });
+            inputElement.after(errorElement);
+          }
+        });
+
+
+        // var namaInput = $('#nama');
+        // var emailInput = $('#email');
+        // var pesanInput = $('#pesan');
+
+
+
+
+        // // Create and append new error elements
+        // if (JSON.parse(xhr.responseText).errors.nama[0]) {
+        //   var namaErrorElement = $('<span>', {
+        //     class: 'text-danger',
+        //     text: JSON.parse(xhr.responseText).errors.nama[0]
+        //   });
+        //   $('#nama').after(namaErrorElement);
+        // }
+
+        // if (JSON.parse(xhr.responseText).errors.email[0]) {
+        //   var emailErrorElement = $('<span>', {
+        //     class: 'text-danger',
+        //     text: JSON.parse(xhr.responseText).errors.email[0]
+        //   });
+        //   $('#email').after(emailErrorElement);
+        // }
+
+        // if (JSON.parse(xhr.responseText).errors.pesan[0]) {
+        //   var pesanErrorElement = $('<span>', {
+        //     class: 'text-danger',
+        //     text: JSON.parse(xhr.responseText).errors.pesan[0]
+        //   });
+        //   $('#pesan').after(pesanErrorElement);
+        // }
+
+
+      }
+    });
+  })
 });
 
 // function fetchDataFromAPICatalog() {

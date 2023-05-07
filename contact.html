@@ -149,7 +149,9 @@
           </div>
         </div>
         <div class="col-12 col-md-6">
-          <form id="form_kirim_email" method="POST" action="kirim_email.php">
+          <form id="form_kirim_email" method="POST">
+           
+            <!-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> -->
             <div class="row mt-5">
               <div class="col-12 col-md-6 mb-3">
                 <input
@@ -158,6 +160,7 @@
                   id="nama"
                   placeholder="Nama"
                   required
+                  name="nama"
                 />
               </div>
 
@@ -168,6 +171,7 @@
                   id="email"
                   placeholder="Email"
                   required
+                  name="email"
                 />
               </div>
             </div>
@@ -178,21 +182,22 @@
                   rows="10"
                   class="form-control shadow lh-lg"
                   placeholder="Pesan"
-                  id="message"
+                  id="pesan"
                   required
+                  name="pesan"
                 ></textarea>
               </div>
             </div>
 
             <div class="row">
               <div class="col-12 text-md-end text-center">
-                <a
-                  href="product.html"
-                  type="button"
+                <button
+                 
+                  type="submit"
                   class="btn btn-dark rounded-pill btn-lg my-3 px-5 formSubmitButton"
                 >
                   <i class="fa-regular fa-paper-plane"></i> Submit
-                </a>
+                </button>
               </div>
             </div>
           </form>
