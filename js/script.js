@@ -473,7 +473,13 @@ $(document).ready(function () {
         $('#email + .text-danger').text('');
         $('#pesan + .text-danger').text('');
 
-        alert("Data Sukses Dikirim")
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Data Sukses Dikirim',
+          showConfirmButton: false,
+          timer: 1500
+        })
       },
       error: function (xhr, status, error) {
         // Handle the AJAX error
@@ -548,32 +554,3 @@ $(document).ready(function () {
   })
 });
 
-// function fetchDataFromAPICatalog() {
-//   $.ajax({
-//     url: "http://localhost:8000/api/" + jenis_data,
-//     method: "GET",
-//     success: function (response) {
-//       // Handle the API response here
-//       console.log(response);
-//     },
-//     error: function (xhr, status, error) {
-//       // Handle AJAX errors here
-//       console.error(error);
-//     },
-//   });
-// }
-
-// function fetchDataFromAPITeam() {
-//   $.ajax({
-//     url: "http://localhost:8000/api/" + jenis_data,
-//     method: "GET",
-//     success: function (response) {
-//       // Handle the API response here
-//       console.log(response);
-//     },
-//     error: function (xhr, status, error) {
-//       // Handle AJAX errors here
-//       console.error(error);
-//     },
-//   });
-// }
