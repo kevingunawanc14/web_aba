@@ -446,6 +446,8 @@ $(document).ready(function () {
     },
   });
 
+  console.log($('#form_kirim_email'))
+
   // send contact us form
   $('#form_kirim_email').submit(function (event) {
     // return alert ("*")
@@ -458,6 +460,8 @@ $(document).ready(function () {
       pesan: $('#pesan').val()
     };
 
+    // Reset the form values
+    // $('#form_kirim_email')[0].reset();
     // return console.log(formData)
     // submit
     // Send the form data to the server-side endpoint using AJAX
@@ -480,6 +484,10 @@ $(document).ready(function () {
           showConfirmButton: false,
           timer: 1500
         })
+
+        // Reset the form values
+        $('#form_kirim_email')[0].reset();
+
       },
       error: function (xhr, status, error) {
         // Handle the AJAX error
@@ -516,37 +524,8 @@ $(document).ready(function () {
         });
 
 
-        // var namaInput = $('#nama');
-        // var emailInput = $('#email');
-        // var pesanInput = $('#pesan');
 
 
-
-
-        // // Create and append new error elements
-        // if (JSON.parse(xhr.responseText).errors.nama[0]) {
-        //   var namaErrorElement = $('<span>', {
-        //     class: 'text-danger',
-        //     text: JSON.parse(xhr.responseText).errors.nama[0]
-        //   });
-        //   $('#nama').after(namaErrorElement);
-        // }
-
-        // if (JSON.parse(xhr.responseText).errors.email[0]) {
-        //   var emailErrorElement = $('<span>', {
-        //     class: 'text-danger',
-        //     text: JSON.parse(xhr.responseText).errors.email[0]
-        //   });
-        //   $('#email').after(emailErrorElement);
-        // }
-
-        // if (JSON.parse(xhr.responseText).errors.pesan[0]) {
-        //   var pesanErrorElement = $('<span>', {
-        //     class: 'text-danger',
-        //     text: JSON.parse(xhr.responseText).errors.pesan[0]
-        //   });
-        //   $('#pesan').after(pesanErrorElement);
-        // }
 
 
       }
