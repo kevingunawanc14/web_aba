@@ -211,8 +211,8 @@ $(document).ready(function () {
         }
 
         if (i == 8) {
-          console.log(counterIsi)
-          console.log(counterIsi1)
+          // console.log(counterIsi)
+          // console.log(counterIsi1)
 
         }
 
@@ -276,7 +276,7 @@ $(document).ready(function () {
     url: url + "catalog",
     method: "GET",
     success: function (response) {
-      console.log(response);
+      // console.log(response);
 
       let catalogDataElementBaris1 = $(".catalogBaris1");
       let catalogDataElementBaris2 = $(".catalogBaris2");
@@ -446,7 +446,7 @@ $(document).ready(function () {
     },
   });
 
-  console.log($('#form_kirim_email'))
+  // console.log($('#form_kirim_email'))
 
   // send contact us form
   $('#form_kirim_email').submit(function (event) {
@@ -491,9 +491,9 @@ $(document).ready(function () {
       },
       error: function (xhr, status, error) {
         // Handle the AJAX error
-        console.log(error);
-        console.log(status);
-        console.log(xhr);
+        // console.log(error);
+        // console.log(status);
+        // console.log(xhr);
 
         // return  
         // Remove existing error elements
@@ -519,7 +519,14 @@ $(document).ready(function () {
               class: 'text-danger',
               text: errorMessage[0]
             });
+
+            // Add red border color to input element
+            inputElement.addClass('border border-danger');
+            
+            // Add error message element
             inputElement.after(errorElement);
+
+
           }
         });
 
