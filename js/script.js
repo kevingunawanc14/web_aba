@@ -488,6 +488,10 @@ $(document).ready(function () {
         // Reset the form values
         $('#form_kirim_email')[0].reset();
 
+        // Remove red border and error elements
+        $('.text-danger').text('');
+        $('.border-danger').removeClass('border border-danger');
+
       },
       error: function (xhr, status, error) {
         // Handle the AJAX error
@@ -522,7 +526,7 @@ $(document).ready(function () {
 
             // Add red border color to input element
             inputElement.addClass('border border-danger');
-            
+
             // Add error message element
             inputElement.after(errorElement);
 
