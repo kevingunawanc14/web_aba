@@ -542,5 +542,41 @@ $(document).ready(function () {
       }
     });
   })
+
+  // GET IP AND PAGE NAME
+  // Get the full page URL
+  var pageURL = window.location.href;
+
+  // Display the full page URL
+  // alert("Full Page URL: " + pageURL);
+
+  // Retrieve the IP address using AJAX
+  $.getJSON("https://api.ipify.org?format=json", function (data) {
+    var ipAddress = data.ip;
+
+    // Display the IP address
+    // alert("IP Address: " + ipAddress);
+
+    // Create the data to send
+    var formData = {
+      pageURL: pageURL,
+      ipAddress: ipAddress
+    };
+
+    // Send the data to another project using AJAX
+    $.ajax({
+      url: 'http://localhost:8000/api/getIpAndPagename',
+      type: 'POST',
+      dataType: 'json',
+      data: formData,
+      success: function (response) {
+        console.log("Data sent successfully:", response);
+      },
+      error: function (xhr, status, error) {
+        console.error("Error sending data:", error);
+      }
+    });
+  });
+
 });
 
