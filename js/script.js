@@ -563,6 +563,8 @@ $(document).ready(function () {
       ipAddress: ipAddress
     };
 
+    // return alert("a")
+
     // Send the data to another project using AJAX
     $.ajax({
       url: 'http://localhost:8000/api/getIpAndPagename',
